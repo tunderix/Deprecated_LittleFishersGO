@@ -5,3 +5,5 @@
 *.suo
 *.pidb
 *.unityproj
+*.csproj
+*.sln
