@@ -20,7 +20,6 @@ public class KeyboardControls : MonoBehaviour
 		{
 			//STOP PLAYER MOVEMENT
 			GameObject.FindGameObjectWithTag("MyFisher").GetComponent<NavigationMovement>().stayStill();
-
 		}
 		if (Input.GetKeyUp (KeyCode.Q)) 
 		{

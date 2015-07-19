@@ -29,31 +29,15 @@ public class GUIControl : Photon.MonoBehaviour {
 	public void onActionButtonClick(int btnNumber)
 	{
 		//Initialize
-		GameObject MyFisher = GameObject.FindGameObjectWithTag ("MyFisher");
 		
 		//ActionButtons.
 		if (btnNumber == 1) 
 		{
-			if(MyFisher.GetComponent<PlayerStatus>().fishingStatus > 0)
-			{//PLAYER FISHING
-				//Stop Fishing
-				manager.GetComponent<Fishing>().stopFishing(MyFisher);
-			}
-			else
-			{//PLAYER IS NOT FISHING
-				//Stop Movement of player
-				MyFisher.GetComponent<NavigationMovement>().stayStill();
-				
-				// Set Fishing range ON
-				setFishingRangeActive();
-				
-				//Set fisherstatus to startstatus...
-				MyFisher.GetComponent<PlayerStatus> ().fishingStatus = 1;
-			}	
+			//MyFisher.GetComponent<PlayerStatus>().readyToFish();
 		}
 		else if (btnNumber == 2) 
 		{
-			MyFisher.GetComponent<PlayerStatus> ().AddItem(1);
+			//MyFisher.GetComponent<PlayerStatus> ().AddItem(1);
 		}
 		else if (btnNumber == 3) 
 		{
@@ -217,42 +201,8 @@ public class GUIControl : Photon.MonoBehaviour {
 		tooltip = "" + item.itemName + "\n\n" + item.itemDesc;
 		return tooltip;
 	}
-	public bool fishingRangeActive()
-	{
-		GameObject MyFisher = GameObject.FindGameObjectWithTag ("MyFisher");
-		// Set player range indicator ON
-		GameObject MyFisherRange =  MyFisher.transform.FindChild ("fishingRange").gameObject;
-		if (MyFisherRange.GetActive ()) 
-		{
-			return true;
-		} 
-		else 
-		{
-			return false;
-		}
-	}
-	public void setFishingRangeActive()
-	{
-		GameObject MyFisher = GameObject.FindGameObjectWithTag ("MyFisher");
-		// Set player range indicator ON
-		GameObject MyFisherRange =  MyFisher.transform.FindChild ("fishingRange").gameObject;
-		MyFisherRange.SetActive (true);
-	}
-	public void setFishingRangeDeactiveIfActive()
-	{
-		GameObject MyFisher = GameObject.FindGameObjectWithTag ("MyFisher");
-		// Set player range indicator ON
-		GameObject MyFisherRange =  MyFisher.transform.FindChild ("fishingRange").gameObject;
-		if (MyFisherRange.GetActive()) 
-		{
-			MyFisherRange.SetActive (false);
-		} 
-		else 
-		{
-			//Debug.Log("Tried to make range deactive. Was already Deactive?");
-		}
 
-	}
+
 
 	public void sellItem(int btnNumber)
 	{

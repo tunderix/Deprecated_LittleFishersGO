@@ -18,6 +18,7 @@ public class Fishing : MonoBehaviour {
 		manager = GameObject.FindGameObjectWithTag ("GameManager");
 	}
 
+
 	//FISHING STARTING
 	public void startFishing(Vector3 targetPosition, GameObject player)
 	{
@@ -174,7 +175,7 @@ public class Fishing : MonoBehaviour {
 		fisher.GetComponent<PlayerStatus> ().fishingStatus = 0;
 
 		//Deactivate Fishing Range
-		GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GUIControl> ().setFishingRangeDeactiveIfActive ();
+		fisher.GetComponent<PlayerActions> ().setFishingRangeDeactiveIfActive ();
 	}
 	string fishSizeConverter(int i)
 	{
