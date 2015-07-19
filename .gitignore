@@ -2,16 +2,6 @@
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
-
-*.csproj
-*.unityproj
-*.sln
 *.suo
-*.tmp
-*.user
-*.userprefs
 *.pidb
-*.booproj
-
-
-sysinfo.txt
+*.unityproj
