@@ -5,6 +5,10 @@ public class MainMenuTab : MonoBehaviour {
 
 	Animator anim;
 
+	/// <summary>
+	/// This is mainMenuTab
+	/// </summary>
+	/// 
 	// Use this for initialization
 	void Start () 
 	{
