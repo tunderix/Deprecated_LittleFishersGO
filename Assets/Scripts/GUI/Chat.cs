@@ -20,7 +20,7 @@ public class Chat : MonoBehaviour
 	{
 		string msg = inputTxt.GetComponent<InputField>().text;
 	
-		photonView.RPC ("sendMessage", PhotonTargets.All, msg);
+		photonView.RPC ("sendMessage", PhotonTargets.All, msg, PhotonNetwork.playerName);
 	}
 	void updateChatWindow()
 	{
@@ -39,9 +39,9 @@ public class Chat : MonoBehaviour
 	}
 
 	[PunRPC]
-	private void sendMessage(string msg)
+	private void sendMessage(string msg, string playerName)
 	{
-		chatHistory.Add (PhotonNetwork.playerName + ": " + msg);
+		chatHistory.Add (playerName + ": " + msg);
 
 		//tell to update CHATwindow.
 		updateChatWindow ();
