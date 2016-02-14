@@ -6,6 +6,7 @@ public class KeyboardControls : MonoBehaviour
 	GameObject player;
 	GameObject gamemanager;
 
+	public GameObject cameraObject;
 
 
 	void Start ()
@@ -40,6 +41,10 @@ public class KeyboardControls : MonoBehaviour
 		if (Input.GetKeyUp (KeyCode.Return)) 
 		{
 			//Summon Main Menu?
+		}
+		if (Input.GetKeyUp (KeyCode.Space)) 
+		{
+			cameraObject.GetComponent<CameraMovement> ().toggleCameraMovement ();
 		}
 	}
 }
