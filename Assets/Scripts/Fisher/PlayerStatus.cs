@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerStatus : Photon.MonoBehaviour {
 
+	public PlayerInventory inventory;
 	public Rod fishingRod;
 	public int money;
 	public int level;
@@ -14,10 +15,6 @@ public class PlayerStatus : Photon.MonoBehaviour {
 	public bool isMoving; 
 	public bool shoppingEnabled;
 	public string playerName;
-
-	//PLAYER INVENTORY Variables
-	public List<Item> inventory = new List<Item>();
-	private itemDatabase database;
 
 	// Use this for initialization
 	void Start () 
@@ -31,16 +28,6 @@ public class PlayerStatus : Photon.MonoBehaviour {
 		isMoving = false;
 		shoppingEnabled = false;
 		fishingStatus = 0;
-
-		//Get database for items...
-		database = GameObject.FindGameObjectWithTag ("ItemDatabase").GetComponent<itemDatabase> ();
-
-		//Load inventory with blanko...
-		for(int i = 0; i < 6; i++)
-		{
-			inventory.Add(new Item());
-		}
-		AddItem (1);
 	}
 
 	public void EquipRod(int id)
@@ -98,58 +85,6 @@ public class PlayerStatus : Photon.MonoBehaviour {
 		//Check if level up
 
 		return tempLevel;
-	}
-
-	public void RemoveItem(int id)
-	{
-		for (int i = 0; i < inventory.Count; i++) 
-		{
-			if(inventory[i].itemID == id)
-			{
-				inventory[i] = null;
-				break;
-			}
-		}
-	}
-	public void AddItem(int id)
-	{
-
-		for (int i = 0; i < inventory.Count; i++) 
-		{
-			if (inventory [i].itemName == null) 
-			{
-				for (int j = 0; j < database.items.Count; j++) 
-				{
-					if (database.items [j].itemID == id) 
-					{
-						inventory [i] = database.items [j];
-					}
-				}
-			
-				break;
-			}
-		}
-		
-	}
-
-
-	bool InventoryContains(int id)
-	{
-		bool result = false;
-		for (int i = 0; i < inventory.Count; i++) 
-		{
-			result = inventory[i].itemID == id;
-			if(result)
-			{
-				break;
-			}
-		}
-		return result;
-	}
-
-	public List<Item> InventoryContents()
-	{
-		return inventory;
 	}
 
 

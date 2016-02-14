@@ -23,19 +23,19 @@ public class KeyboardControls : MonoBehaviour
 		}
 		if (Input.GetKeyUp (KeyCode.Q)) 
 		{
-			gamemanager.GetComponent<GUIControl>().onActionButtonClick(1);
+			gamemanager.GetComponent<ActionController>().onActionButtonClick(ActionController.ActionButton.ab1);
 		}
 		if (Input.GetKeyUp (KeyCode.W)) 
 		{
-			gamemanager.GetComponent<GUIControl>().onActionButtonClick(2);
+			gamemanager.GetComponent<ActionController>().onActionButtonClick(ActionController.ActionButton.ab2);
 		}
 		if (Input.GetKeyUp (KeyCode.E)) 
 		{
-			gamemanager.GetComponent<GUIControl>().onActionButtonClick(3);
+			gamemanager.GetComponent<ActionController>().onActionButtonClick(ActionController.ActionButton.ab3);
 		}
 		if (Input.GetKeyUp (KeyCode.R)) 
 		{
-			gamemanager.GetComponent<GUIControl>().onActionButtonClick(4);
+			gamemanager.GetComponent<ActionController>().onActionButtonClick(ActionController.ActionButton.ab4);
 		}
 		if (Input.GetKeyUp (KeyCode.Return)) 
 		{

@@ -13,13 +13,9 @@ public class Inventory : MonoBehaviour {
 	private string tooltip;
 	int inventoryOffsetX;
 	int inventoryOffsetY;
-
+	/*
 	// Use this for initialization
 	void Start () {
-
-
-
-
 		for(int i = 0; i < (slotsX*SlotsY); i++)
 		{
 			slots.Add(new Item());
@@ -147,4 +143,6 @@ public class Inventory : MonoBehaviour {
 		}
 		return result;
 	}
+
+	*/
 }
